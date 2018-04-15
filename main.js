@@ -32,12 +32,6 @@ const myQuestions = [
   },
 ]
 
-function quizTest() {
-  console.log(myQuestions[0].correctAnswer);
-}
-
-quizTest();
-
 function buildQuiz() {
 
   const output = [];
@@ -56,7 +50,25 @@ function buildQuiz() {
           `
         );
       }
-    }
-  )
 
+      output.push(
+        `
+        <div class='question'> ${currentQuestion.question} </div>
+        <div class='answers'> ${answers.join('')} </div>
+        `
+      );
+    }
+  );
+  quizContainer.innerHTML = output.join('');
+}
+
+buildQuiz();
+
+function showResults() {
+  const answerContainers = quizContainer.querySelectorAll('.answers');
+  let numCorrect = 0;
+
+  myQuestions.forEach((currentQuestion, questionNumber) => {
+    const answerContainer = answerContainers[questionNumber];
+  });
 }
